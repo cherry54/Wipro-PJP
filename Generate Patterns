@@ -1,0 +1,354 @@
+#include <iostream>
+#include<conio.h>
+
+using namespace std;
+
+int row=5;
+void SET_ROW_LEVEL()
+{
+    cout<<"current row level:"<<row;
+    cout<<"\nenter new row level:";
+    int x;
+    cin>>x;
+    row=x;
+}
+void Row_Numbers()
+{
+    for(int i=0;i<row;i++)
+    {
+        int j=0;
+        while(j<row-i)
+        {
+            cout<<" ";
+            j++;
+        }
+        while(j>=row-i && j<=row+i)
+        {
+            cout<<i+1;
+            j++;
+        }
+        cout<<"\n";
+    }
+}
+void Row_Numbers_backwards()
+{
+    for(int i=0;i<row;i++)
+    {
+        int j=0;
+        while(j<row-i)
+        {
+            cout<<" ";
+            j++;
+        }
+        while(j>=row-i && j<=row+i)
+        {
+            cout<<row-i;
+            j++;
+        }
+        cout<<"\n";
+    } 
+}
+void Up_Down_Numbers()
+{
+    int k = row - 1;int j ;
+    for(int i=1;i<=row;i++)
+    {
+        for (j = 1; j <= k; j++) 
+            cout << " "; 
+        k = k - 1;
+        int x=1;
+        while(j<=row)
+        {
+            cout<<x;
+            j++;
+            x++;
+        }
+        x-=2;
+        while(x>0)
+        {
+            cout<<x;
+            x--;
+        }
+        cout<<"\n";
+    } 
+}
+void Up_Numbers_Down_Alphabets()
+{
+    int k = row - 1;
+    int j ;
+    for(int i=1;i<=row;i++)
+    {
+        for (j = 1; j <= k; j++) 
+        cout << " "; 
+        k = k - 1;
+        int x=1;
+        while(j<=row)
+        {
+            cout<<x;
+            j++;
+            x++;
+        }
+        x-=2;
+        int n=64;
+        while(x>0)
+        {
+            char ch=char(n+x);
+            cout<<ch;
+            x--;
+        }
+        cout<<"\n";
+    } 
+}
+void Consequetive_seires()
+{
+    int k = row - 1;
+    int num=0;
+    int j ;
+    for(int i=1;i<=row;i++)
+    {
+        for (j = 1; j <= k; j++) 
+        cout << " "; 
+        k = k - 1;
+        int x=1;
+        while(j<=row)
+        {
+            cout<<num;
+            j++;
+            x++;
+            num++;
+            if(num==9)
+            num=0;
+        }
+        x-=2;
+        while(x>0)
+        {
+            cout<<num;
+            num++;
+            if(num==9)
+            num=0;
+            x--;
+        }
+        cout<<"\n";
+    }    
+}
+void Alpha_Numeric_Alternate()
+{
+    int k=row-1;
+    int j;
+    for(int i=1;i<=row;i++)
+    {
+        for(j=1;j<=k;j++)
+        cout<<" ";
+        k=k-1;
+        int flag=0;
+        int c=65;
+        int num=2;int x=0;
+        while(j<=row)
+        {
+            if(flag==0)
+            {
+                char ch=char(c);
+                cout<<ch;
+                flag=1;
+                c+=2;
+            }
+            else
+            {
+                cout<<num;
+                flag=0;
+                num+=2;
+            }
+            j++;
+            x++;
+        }
+        x--;
+        if(flag==1)
+        {
+            c-=4;
+            num-=2;
+        }
+        else
+        {
+            num-=4;
+            c-=2;
+        }
+        while(x>0)
+        {
+            if(flag==0)
+            {
+                char ch=char(c);
+                cout<<ch;
+                flag=1;
+                c-=2;
+            }
+            else
+            {
+                cout<<num;
+                flag=0;
+                num-=2;
+            }
+            x--;
+        }
+        cout<<"\n";
+    }
+}
+void Row_Number_Up_Down()
+{
+    int k = row - 1;
+    for(int i=1;i<=row;i++)
+    {
+        int j ;
+        for (j = 1; j <= k; j++) 
+        cout << " "; 
+        k = k - 1;
+        int x=i;
+        while(j<=row)
+        {
+            cout<<x;
+            j++;
+            x++;
+        }
+        x-=2;
+        while(x>=i)
+        {
+            cout<<x;
+            x--;
+        }
+        cout<<"\n";
+    }   
+}
+void Diamond_Alpha_Numeric()
+{
+    int k = row - 1;
+    int j ;
+    int x=1;
+    for(int i=1;i<=row;i++)
+    {
+        for (j = 1; j <= k; j++) 
+        cout << " "; 
+        k = k - 1;
+        int n=x;
+        while(n>0)
+        {
+            cout<<i;
+            n--;
+        }
+        x=x+2;
+        cout<<"\n";
+    }  
+    x=row-1;
+    k=1;
+    while(x>0)
+    {
+        for (j = 1; j <= k; j++) 
+        cout << " "; 
+        k = k + 1;
+        int num=64+x;
+        char ch=char(num);
+        while(j<=x+row-1)
+        {
+            cout<<ch;
+            j++;
+        }
+        cout<<"\n";
+        x--;
+    }
+}
+void Diamond_Alpha_Star()
+{
+    int k = row - 1;
+    int j ;
+    int x;
+    for(int i=1;i<=row;i++)
+    {
+        for (j = 1; j <= k; j++) 
+        cout << " "; 
+        k = k - 1;
+        x=1;
+        while(j<=row)
+        {
+            cout<<x;
+            j++;
+            x++;
+        }
+        x-=2;
+        while(x>0)
+        {
+            cout<<"*";
+            x--;
+        }
+        cout<<"\n";
+    } 
+    x=row-1;
+    k=1;
+    while(x>0)
+    {
+        for (j = 1; j <= k; j++) 
+        cout << " "; 
+        while(j<row)
+        {
+            cout<<"*";
+            j++;
+        }
+        int n=row-k;
+        while(n>0)
+        {
+            cout<<n;
+            n--;
+        }
+        k = k + 1;
+        x--;
+        cout<<"\n";
+    }
+}
+int main(void)
+{
+    //char c;
+    do
+    {
+    cout<<"---------------\nMAIN MENU **\n-------------\n";
+    cout<<"1. Row Numbers\n2. Row Numbers backwards\n3. Up Down Numbers\n4. Up Numbers Down Alphabets\n";
+    cout<<"5. Alpha Numeric Alternate\n6. Consequetive seires\n7. Row Number Up Down\n";
+    cout<<"8. Diamond Alpha Numeric\n9. Diamond Alpha Star\n10. SET ROW_LEVEL\n0. EXIT\n";
+    cout<<"Enter Your Option (1 to 10) (0 to Exit)";
+    int n;
+    cin>>n;
+    switch (n)
+    {
+        case 0:
+            exit(0);  
+        case 1:
+            Row_Numbers();
+            break;
+        case 2:
+            Row_Numbers_backwards();
+            break;
+        case 3:
+            Up_Down_Numbers();
+            break;
+        case 4:
+            Up_Numbers_Down_Alphabets();
+            break;
+        case 5:
+            Alpha_Numeric_Alternate();
+            break;
+        case 6:
+            Consequetive_seires();
+            break;
+        case 7:
+            Row_Number_Up_Down();
+            break;
+        case 8:
+            Diamond_Alpha_Numeric();
+            break;
+        case 9:
+            Diamond_Alpha_Star();
+            break;
+        case 10:
+            SET_ROW_LEVEL();
+            break;
+    }
+    //c=cin.get();
+    }while(getch());
+    return 0;
+}
