@@ -1,0 +1,67 @@
+#include<iostream>
+#include<set> 
+
+using namespace std;
+
+int makeonedigit(int n) 
+{ 
+    int sum = 0; 
+    while(n > 0 || sum > 9) 
+    { 
+        if(n == 0) 
+        { 
+            n = sum; 
+            sum = 0; 
+        } 
+        sum += n % 10; 
+        n /= 10; 
+    } 
+    return sum; 
+} 
+void arrayCleanup(int a[],int n)
+{
+  for(int i=0;i<n;i++)
+  {
+      if(a[i]>9)
+      a[i]=makeonedigit(a[i]);
+  }
+  int check[10]={0};
+  int i=0,j=0;
+  while(i++<n-1)
+  {
+      if(a[i]==0)
+      continue;
+      if(check[a[i]]==0)
+      {
+          a[j++]=a[i];
+          check[a[i]]=1;
+          cout<<a[i]<<" ";
+      }
+  }
+  n=j;
+  cout<<endl;
+  set<int> s; 
+  for(i=0;i<n-1;i++)
+  {
+      s.insert(a[i]*a[i]);
+      for(j=i+1;j<n;j++)
+      s.insert(a[i]+a[j]);
+  }
+  i=0;j=0;
+   while(i<n-1)
+  {
+      if(s.find(a[i])==s.end())
+      {
+          a[j++]=a[i];
+          cout<<a[i]<<" ";
+      }
+      i++;
+  }
+}
+int main()
+{
+    int a[]={5,53,3,0,4,21,32,2,3};
+    int n=9;
+    arrayCleanup(a,n);
+    return 0;
+}
