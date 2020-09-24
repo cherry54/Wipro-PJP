@@ -1,0 +1,47 @@
+#include <iostream>
+#include <cstring> 
+using namespace std;
+
+bool vowel(char c)
+{
+    if(c=='A'||c=='E'||c=='I'||c=='O'||c=='U'||c=='a'||c=='e'||c=='i'||c=='o'||c=='u')
+    return true;
+    return false;
+}
+void WeightOfString(char *input1,int input2)
+{
+    int ans=0,i=0;
+    if(input2==0)
+    {
+        while(input1[i])
+        {
+            if(input1[i]>=65 && input1[i]<=90 && !vowel(input1[i]))
+            ans+=(input1[i]-'a'+1);
+            if(input1[i]>=97 && input1[i]<=122 && !vowel(input1[i]))
+            ans+=(input1[i]-'a'+1);
+            i++;
+        }
+    }
+    else
+    {
+        while(input1[i])
+        {
+            if(input1[i]>=65 && input1[i]<=90)
+            ans+=(input1[i]-'a'+11);
+            if(input1[i]>=97 && input1[i]<=122)
+            ans+=(input1[i]-'a'+1);
+            i++;
+        }
+    }
+    cout<<ans<<endl;
+}
+int main()
+{
+    char str[]="RAja i love u";
+    int n=0;
+    WeightOfString(str,n);
+    char str1[]="RAja i love u";
+    n=1;
+    WeightOfString(str1,n);
+    return 0;
+}
